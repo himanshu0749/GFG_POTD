@@ -1,0 +1,31 @@
+class Solution
+{
+public:
+    int count =0;
+    int countPairs(Node* root1, Node* root2, int x)
+    {
+        
+        unordered_map<int,int>map;
+        inorderd(root1,map); //function of tree 1
+        trav(root2,map,x);  // function of tree 2
+        return count;
+ 
+    }
+    
+    void inorderd(Node* root,unordered_map<int,int>&map){
+        if(root==NULL) return;
+        
+        inorderd(root->left,map);
+        map[root->data]=1;
+        inorderd(root->right,map);
+    }
+    void trav(Node* root,unordered_map<int,int>&map,int x){
+        if(root==NULL) return;
+        trav(root->left,map,x);
+        int target=x-(root->data); // value of current node
+        if(map.count(target)!=0){
+            count++;
+        }
+        trav(root->right,map,x);
+    }
+};
