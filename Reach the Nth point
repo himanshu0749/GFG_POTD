@@ -1,0 +1,23 @@
+class Solution
+{
+    public int nthPoint(int n)
+    {
+        // Code here
+       // int c;
+        if(n==0 || n==1) return 1%1000000007;
+        else if(n==2) return 2%1000000007;
+        else{
+            int a=1;
+            int b=1;
+            
+            for(int i=1;i<n;i++){
+                int c=(a+b)%1000000007;
+                a=b;
+                b=c;
+                if(i==(n-1)) return c;
+            }
+            
+        }
+        return 0;
+    }
+}
