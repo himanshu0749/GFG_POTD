@@ -1,0 +1,8 @@
+ if(m==n) return -1;
+        int position=1;
+        int a=m^n;
+        while((a&1)!=1){
+            position++;
+            a/=2;
+        }
+        return position;
