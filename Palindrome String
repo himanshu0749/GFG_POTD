@@ -1,0 +1,14 @@
+class Solution {
+    int isPalindrome(String S) {
+        // code here
+        int p=0;
+        int e=S.length()-1;
+        while(p<e){
+            if(S.charAt(p)==S.charAt(e)){
+                p++;
+                e--;
+            }else return 0;
+        }
+        return 1;
+    }
+};
