@@ -1,0 +1,15 @@
+class Solution {
+    void matchPairs(int n, char nuts[], char bolts[]) {
+        // code here
+        TreeSet<Character> set= new TreeSet<>();
+        for(char i:nuts){
+            set.add(i);
+        }
+        int i=0;
+        for(char c:set){
+            nuts[i]=c;
+            bolts[i]=c;
+            i++;
+        }
+    }
+}
