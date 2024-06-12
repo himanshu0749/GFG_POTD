@@ -1,0 +1,43 @@
+1st mtd;------------------------------------------------------------
+
+class Solution {
+    public static int countNumberswith4(int n) {
+        // code here
+         int count = 0;
+        for (int i = 4; i <= n; i++) {
+           int j=i;
+           while(j>0){
+               if(j%10==4){
+                   count++;
+                   break;
+               }
+               j/=10;
+           }
+        }
+        return count;
+    }
+}
+
+
+2nd mtd;-----------------------------------------------------------
+class Solution {
+    
+    public static int find(int i){
+        while(i>0){
+            if(i%10==4){
+                return 1;
+            }
+            i/=10;
+        }
+        return 0;
+    }
+    
+    public static int countNumberswith4(int n) {
+        // code here
+         int count = 0;
+        for (int i = 4; i <= n; i++) {
+           if(find(i)==1) count++;
+        }
+        return count;
+    }
+}
