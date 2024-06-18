@@ -1,0 +1,15 @@
+class Solution {
+    int rectanglesInCircle(int r) {
+        // code here
+        int count=0;
+        int max=2*r;
+        for(int l=1;l<max;l++){
+            for(int w=1;w<max;w++){
+                if(w*w+l*l<=4*r*r){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
