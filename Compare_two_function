@@ -1,0 +1,38 @@
+
+class Solution {
+
+    String compareFrac(String str) {
+        // Code here
+        int n=str.length(),i=0,nu1=0,nu2=0,deno1=0,deno2=0;
+        while(i<n && str.charAt(i)!='/'){
+            nu1=nu1*10+(str.charAt(i)-'0');
+            i++;
+        }i++;
+        while(i<n && str.charAt(i)!=','){
+            deno1=deno1*10+(str.charAt(i)-'0');
+            i++;
+        }i++;
+        if(i<n && str.charAt(i)==' ') {
+            i++;
+        }
+        while(i<n && str.charAt(i)!='/'){
+            nu2=nu2*10+(str.charAt(i)-'0');
+            i++;
+        }i++;
+        while(i<n){
+            deno2=deno2*10+(str.charAt(i)-'0');
+            i++;
+        }
+        int res1=nu1*deno2;
+        int res2=nu2*deno1;
+        if(res1>res2){
+            return nu1+"/"+deno1;
+        }
+        else if(res1<res2){
+            return nu2+"/"+deno2;
+        }
+        else{ 
+            return "equal";
+        }
+    }
+}
