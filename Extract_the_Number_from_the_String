@@ -1,0 +1,26 @@
+class Solution {
+    long ExtractNumber(String s) {
+        long res = -1;
+        int n = s.length();
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                long num = 0;
+                boolean nine = false;
+                while (i < n && s.charAt(i) != ' ') {
+                    if (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                        if (s.charAt(i) == '9') {
+                            nine = true;
+                        }
+                        int x = s.charAt(i) - '0';
+                        num = num * 10 + x;
+                    }
+                    i++;
+                }
+                if (!nine) {
+                    res = Math.max(res, num);
+                }
+            }
+        }
+        return res;
+    }
+}
