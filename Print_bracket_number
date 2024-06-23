@@ -1,0 +1,24 @@
+class Solution {
+    ArrayList<Integer> bracketNumbers(String str) {
+        // code here
+        Stack<Integer> newsr=new Stack<>();
+        int c=1;
+        int n=str.length();
+        ArrayList<Integer> resultlist =new ArrayList<>();
+        
+        for(int i=0;i<n;i++){
+            char ch=str.charAt(i);
+            if(ch=='('){
+                newsr.push(c);
+                resultlist.add(c);
+                c++;
+            }
+            else if(ch==')'){
+                if(!newsr.isEmpty()){
+                    resultlist.add(newsr.pop());
+                }
+            }
+        }
+        return resultlist;
+    }
+};
