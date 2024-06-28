@@ -1,0 +1,42 @@
+class Solution {
+    public String pattern(int[][] arr) {
+        // Code here
+         int n = arr.length;
+        int i=0;
+        int j=0;
+        // Check rows for palindrome
+        while (i<n && j<n/2) {
+            boolean ispd = true;
+            //while(j < n / 2) {
+                if (arr[i][j] != arr[i][n - j - 1]) {
+                    ispd = false;
+                }
+                j++;
+            }
+            if (ispd) {
+                return i + " R";
+            }
+            i++;
+        }
+        int k=0;
+        int p=0;
+        // Check columns for palindrome
+        while (k < n && p<n/2) {
+            boolean ispd = true;
+            //i=0;
+            //while(i < n / 2) {
+                if (arr[p][k] != arr[n - p - 1][k]) {
+                    ispd = false;
+                }
+                p++;
+            if (ispd) {
+                return k + " C";
+            }
+            k++;
+        }
+        
+        // No palindrome found
+        return "-1";
+        
+    }
+}
