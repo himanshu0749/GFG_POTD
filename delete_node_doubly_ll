@@ -1,0 +1,45 @@
+class Solution {
+    public Node deleteNode(Node head, int x) {
+        if (head == null || x <= 0) {
+            return head;
+        }
+
+        Node current = head;
+
+        // If the node to be deleted is the head node (position 1)
+        if (x == 1) {
+            if (head.next != null) {
+                head = head.next;
+                head.prev = null;
+            } else {
+                head = null;
+            }
+            return head;
+        }
+
+        // Traverse to the node at the given position
+        for (int i = 1; current != null && i < x; i++) {
+            current = current.next;
+        }
+
+        // If position is more than the number of nodes
+        if (current == null) {
+            return head;
+        }
+
+        // If the node to be deleted is the tail node
+        if (current.next == null) {
+            current.prev.next = null;
+        } else {
+            // If the node to be deleted is in the middle
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+        }
+
+        // Clear the deleted node's references
+        current.next = null;
+        current.prev = null;
+
+        return head;
+    }
+}
