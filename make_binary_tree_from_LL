@@ -1,0 +1,26 @@
+class GfG 
+{
+    //Function to make binary tree from linked list.
+    public static Tree convert(Node head, Tree node) {
+        // add code here.}
+         if (head == null)
+            return null;
+        Queue<Tree> queue = new LinkedList<>();
+        Tree root = new Tree(head.data);
+        queue.add(root);
+        head = head.next;
+        while (head != null) {
+            Tree parent = queue.poll();
+            parent.left = new Tree(head.data);
+            queue.add(parent.left);
+            head = head.next; 
+            if (head != null) {
+                parent.right = new Tree(head.data);
+                queue.add(parent.right);
+                head = head.next; 
+            }
+        }
+        
+        return root; // Return the root of the binary tree
+    }
+}  
