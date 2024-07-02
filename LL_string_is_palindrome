@@ -1,0 +1,21 @@
+class Solution {
+    public boolean compute(Node root) {
+        StringBuilder str = new StringBuilder();
+        while(root!=null){
+            str.append(root.data);
+            root=root.next;
+        }
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
