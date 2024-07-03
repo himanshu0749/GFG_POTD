@@ -1,0 +1,27 @@
+class Solution {
+    public Node removeAllDuplicates(Node head) {
+        // code here
+        if(head==null) return null;
+        HashMap<Integer, Integer>count=new HashMap<>();
+        Node current = head;
+        while(current!=null){
+            count.put(current.data, count.getOrDefault(current.data, 0) + 1);
+            current = current.next;
+        }
+        current=head;
+        Node result=new Node(0);
+        result.next=head;
+        Node pre=result;
+       while (current != null) {
+            if (count.get(current.data) > 1) {
+                pre.next = current.next; // Remove current node
+            } else {
+                pre = current; 
+            }
+            current = current.next;
+        }
+
+        return result.next;
+
+    }
+}
