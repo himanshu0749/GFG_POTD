@@ -1,0 +1,14 @@
+class Solution {
+
+    // Note that the size of the array is n-1
+    int missingNumber(int k, int arr[]) {
+
+        // Your Code Here
+        int exsum=k*(k+1)/2;
+        int sum=0;
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+        }
+        return exsum-sum;
+    }
+}
