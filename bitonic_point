@@ -1,0 +1,11 @@
+class Solution {
+    int findMaximum(int[] arr, int n) {
+        // code here
+        int ma=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            ma=Math.max(ma,arr[i]);
+            //if()
+        }
+        return ma;
+    }
+}
