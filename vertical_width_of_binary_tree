@@ -1,0 +1,16 @@
+class Solution {
+    // Function to find the vertical width of a Binary Tree.
+    public int verticalWidth(Node root) {
+        // code here.
+        if(root==null) return 0;
+        Set<Integer> count=new HashSet<>();
+        cal_ho_dis(root,0,count);
+        return count.size();
+    }
+    public void cal_ho_dis(Node root,int dis,Set<Integer>count){
+        if(root==null) return;
+        count.add(dis);
+        cal_ho_dis(root.left,dis-1,count);
+        cal_ho_dis(root.right,dis+1,count);
+    }
+}
