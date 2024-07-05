@@ -1,0 +1,15 @@
+class Solution {
+    public long count(int coins[], int N, int sum) {
+        // code here.
+         long[] ways = new long[sum + 1];
+        // There is one way to make the sum 0 (using no coins)
+        ways[0] = 1;
+        // Iterate over each coin
+        for (int i:coins) {
+             for (int j=i;j<=sum;j++){
+                ways[j]+=ways[j-i];
+            }
+        }
+        return ways[sum];
+   }
+}
