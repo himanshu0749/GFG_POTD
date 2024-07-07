@@ -1,0 +1,15 @@
+class Hanoi {
+
+    public long toh(int n, int from, int to, int aux) {
+        // Your code here
+        if(n==1){
+           System.out.println("move disk 1 from rod "+from+" to rod "+to);
+            return 1;
+        }
+        long move1=toh(n-1,from,aux,to);
+        System.out.println("move disk "+n+" from rod "+from+" to rod "+to);
+        long move2=1;
+        long move3=toh(n-1,aux,to,from);
+        return move1+move2+move3;
+    }
+}
