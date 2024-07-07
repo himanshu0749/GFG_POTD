@@ -1,0 +1,28 @@
+int maxSum = Integer.MIN_VALUE;
+
+        // Outer loop for rows
+        for (int top = 0; top < R; top++) {
+            int[] temp = new int[C];
+            // Inner loop for rows
+            for (int bottom = top; bottom < R; bottom++) {
+                // Sum columns between top and bottom
+                for (int col = 0; col < C; col++) {
+                    temp[col] += M[bottom][col];
+                }
+                // Find the maximum sum subarray in this column sum array
+                int currentMaxSum = kadane(temp);
+                maxSum = Math.max(maxSum, currentMaxSum);
+            }
+        }
+
+        return maxSum;
+    }
+
+    private int kadane(int[] arr) {
+        int maxSum = Integer.MIN_VALUE, currentSum = 0;
+        for (int value : arr) {
+            currentSum = Math.max(value, currentSum + value);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
