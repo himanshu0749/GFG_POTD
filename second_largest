@@ -1,0 +1,17 @@
+class Solution {
+    public int print2largest(int[] arr) {
+        // Code Here
+        int first_large=Integer.MIN_VALUE;
+        int second=Integer.MIN_VALUE;
+        for(int num:arr){
+            if(num>first_large){
+                second=first_large;
+                first_large=num;
+            }
+            else if(num<first_large && num>second){
+                second=num;
+            }
+        }
+        return (second==Integer.MIN_VALUE)?-1:second;
+    }
+}
